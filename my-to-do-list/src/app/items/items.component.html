@@ -1,0 +1,14 @@
+<h2>My tasks & activities </h2>
+<ul class="heroes">
+  <li *ngFor="let task_item of LIST">
+    <span class="badge"># {{task_item.id}}</span> {{task_item.name}}
+  </li>
+</ul>
+<h2>{{task_item.name | uppercase}} Details</h2>
+<div><span>id: </span>{{task_item.id}}</div>
+<div><span>name: </span>{{task_item.name}}</div>
+<div>
+  <label>name:
+    <input [(ngModel)]="task_item.name" placeholder="name"/>
+  </label>
+</div>
