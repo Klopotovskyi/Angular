@@ -1,6 +1,6 @@
 import {TASK} from "./task";
 
-export const TASK_LIST: TASK[] = [
+export const TASK_LIST : TASK[] = [
   { id: 11, name: 'my_task_11' },
   { id: 12, name: 'my_task_12' },
   { id: 13, name: 'my_task_13' },

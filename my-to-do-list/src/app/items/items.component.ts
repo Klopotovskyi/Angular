@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {TASK } from "../task";
+import {TASK} from "../task";
 import {TASK_LIST} from "../moch-task-list";
 
 @Component({
@@ -10,11 +10,14 @@ import {TASK_LIST} from "../moch-task-list";
 })
 export class ItemsComponent implements OnInit {
 
-  public task_item: TASK = {
-    id: 1,
-    name: 'my_task_1'
+  currentItem: TASK;
+
+  public items: TASK[] = TASK_LIST;
+
+  public onSelect(activity: TASK): void {
+    this.currentItem = activity;
   }
-  public LIST: TASK[] = TASK_LIST;
+
   constructor() { }
 
   ngOnInit() {  }
