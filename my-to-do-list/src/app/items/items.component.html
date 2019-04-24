@@ -5,12 +5,4 @@
   </li>
 </ul>
 
-<div *ngIf="currentItem">
-  <h2>{{currentItem.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{currentItem.id}}</div>
-  <div><span>name: </span>{{currentItem.name}}</div>
-  <div>
-    <label>name: <input [(ngModel)]="currentItem.name" placeholder="name"/>
-    </label>
-  </div>
-</div>
+<app-item-detail [item]="currentItem"></app-item-detail>
