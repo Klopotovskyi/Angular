@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TASK} from "../task";
-import {TASK_LIST} from "../moch-task-list";
+
 
 @Component({
   selector: 'app-items',
@@ -9,16 +9,33 @@ import {TASK_LIST} from "../moch-task-list";
 
 })
 export class ItemsComponent implements OnInit {
-
+  newItemName: string = '';
+  items: any = [];
+  itemsObj: any;
   currentItem: TASK;
 
-  public items: TASK[] = TASK_LIST;
+  addItem(e) {
+
+
+    this.itemsObj = {
+      newItemName: this.newItemName,
+      completed: false,
+    }
+    this.items.push(this.itemsObj);
+    this.newItemName = '';
+    e.preventDefault();
+  }
+  deleteTodo(index) {
+    this.items.splice (index, 1);
+  }
 
   public onSelect(activity: TASK): void {
     this.currentItem = activity;
   }
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() {  }
 

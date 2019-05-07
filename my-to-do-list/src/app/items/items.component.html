@@ -1,8 +1,20 @@
 <h2>My tasks & activities </h2>
-<ul class="heroes">
-  <li *ngFor="let activity of items" [class.selected]="activity === currentItem" (click)="onSelect(activity)">
-    <span class="badge"># {{activity.id}}</span> {{activity.name}}
+<div class="todos">
+  <form (submit)="addItem($event)">
+    <input [(ngModel)]="newItemName" (keyup.enter)="newItemName=''" name="newItemName">
+    <button  type="submit" [disabled]="newItemName===''">Add Todo</button>
+  </form>
+</div>
+<div [hidden]="!newItemName">
+  Typing: {{newItemName }}
+</div>
+<ul>
+  <li *ngFor="let todo of items; let i=index">
+    <input type="checkbox" class="checkbox" [(ngModel)]="todo.completed" />
+    <span [ngClass]="{'checked': todo.completed}">{{ todo.newItemName }}</span>
+      <span (click)="deleteTodo(i)" class="delete-icon">[X]</span>
   </li>
 </ul>
+
 
 <app-item-detail [item]="currentItem"></app-item-detail>

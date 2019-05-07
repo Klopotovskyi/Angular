@@ -11,6 +11,7 @@ export class ItemDetailComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
