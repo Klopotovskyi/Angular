@@ -9,9 +9,9 @@
   Typing: {{newItemName }}
 </div>
 <ul>
-  <li *ngFor="let todo of items; let i=index">
-    <input type="checkbox" class="checkbox" [(ngModel)]="todo.completed" />
-    <span [ngClass]="{'checked': todo.completed}">{{ todo.newItemName }}</span>
+  <li *ngFor="let item of items; let i=index" (click)="onSelect(item)">
+    <input type="checkbox" class="checkbox" [(ngModel)]="item.completed" />
+    <span [ngClass]="{'checked': item.completed}">{{ item.newItemName }}</span>
       <span (click)="deleteTodo(i)" class="delete-icon">[X]</span>
   </li>
 </ul>
