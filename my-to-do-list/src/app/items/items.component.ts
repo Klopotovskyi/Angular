@@ -9,20 +9,20 @@ import {TASK} from "../task";
 
 })
 export class ItemsComponent implements OnInit {
-  newItemName: string = '';
+  name: string = '';
   items: any = [];
-  itemsObj: any;
+  itemsObj: TASK;
   currentItem: TASK;
 
   addItem(e) {
 
 
     this.itemsObj = {
-      newItemName: this.newItemName,
+      name: this.name,
       completed: false,
     }
     this.items.push(this.itemsObj);
-    this.newItemName = '';
+    this.name = '';
     e.preventDefault();
   }
   deleteTodo(index) {

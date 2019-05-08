@@ -1,17 +1,17 @@
 <h2>My tasks & activities </h2>
 <div class="todos">
   <form (submit)="addItem($event)">
-    <input [(ngModel)]="newItemName" (keyup.enter)="newItemName=''" name="newItemName">
-    <button  type="submit" [disabled]="newItemName===''">Add Todo</button>
+    <input [(ngModel)]="name" (keyup.enter)="name=''" name="name">
+    <button  type="submit" [disabled]="name===''">Add Todo</button>
   </form>
 </div>
-<div [hidden]="!newItemName">
-  Typing: {{newItemName }}
+<div [hidden]="!name">
+  Typing: {{name }}
 </div>
 <ul>
   <li *ngFor="let item of items; let i=index" (click)="onSelect(item)">
     <input type="checkbox" class="checkbox" [(ngModel)]="item.completed" />
-    <span [ngClass]="{'checked': item.completed}">{{ item.newItemName }}</span>
+    <span [ngClass]="{'checked': item.completed}">{{ item.name }}</span>
       <span (click)="deleteTodo(i)" class="delete-icon">[X]</span>
   </li>
 </ul>
