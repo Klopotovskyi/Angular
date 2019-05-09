@@ -8,10 +8,10 @@ import {TASK} from "../task";
 })
 export class ItemDetailComponent implements OnInit {
   @Input() item: TASK;
-  constructor() { }
 
-  ngOnInit() {
-    
+  constructor() {
   }
 
+  ngOnInit() {
+  }
 }

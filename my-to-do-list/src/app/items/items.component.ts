@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TASK} from "../task";
-
 
 @Component({
   selector: 'app-items',
@@ -15,21 +14,21 @@ export class ItemsComponent implements OnInit {
   currentItem: TASK;
 
   addItem(e) {
-
-
     this.itemsObj = {
       name: this.name,
-      completed: false,
+      status: "inProgress",
+      complited: false
     }
     this.items.push(this.itemsObj);
     this.name = '';
     e.preventDefault();
   }
+
   deleteTodo(index) {
-    this.items.splice (index, 1);
+    this.items.splice(index, 1);
   }
 
-  public onSelect(activity: TASK): void {
+  public onSelect(activity: TASK) {
     this.currentItem = activity;
   }
 
@@ -37,6 +36,7 @@ export class ItemsComponent implements OnInit {
 
   }
 
-  ngOnInit() {  }
+  ngOnInit() {
+  }
 
 }
