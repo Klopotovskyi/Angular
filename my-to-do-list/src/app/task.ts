@@ -1,6 +1,6 @@
 export class TASK {
   name: string;
-  status: Status;
-  complited: boolean
+  status: boolean;
+  complited: boolean;
+  statusCond: string
 }
-export type Status = "Done" | "inProgress";

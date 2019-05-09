@@ -16,8 +16,9 @@ export class ItemsComponent implements OnInit {
   addItem(e) {
     this.itemsObj = {
       name: this.name,
-      status: "inProgress",
-      complited: false
+      status: false,
+      complited: false,
+      statusCond: "inProgress"
     }
     this.items.push(this.itemsObj);
     this.name = '';
@@ -28,8 +29,14 @@ export class ItemsComponent implements OnInit {
     this.items.splice(index, 1);
   }
 
-  public onSelect(activity: TASK) {
+  onSelect(activity: TASK): void {
     this.currentItem = activity;
+
+    if (this.currentItem.status === true) {
+      this.currentItem.statusCond = "Done"
+    } else {
+      this.currentItem.statusCond = "inProgress"
+    }
   }
 
   constructor() {

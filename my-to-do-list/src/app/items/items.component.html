@@ -2,17 +2,17 @@
 <div class="todos">
   <form (submit)="addItem($event)">
     <input [(ngModel)]="name" (keyup.enter)="name=''" name="name">
-    <button  type="submit" [disabled]="name===''">Add Todo</button>
+    <button type="submit" [disabled]="name===''">Add Todo</button>
   </form>
 </div>
 <div [hidden]="!name">
   Typing: {{name }}
 </div>
 <ul>
-  <li *ngFor="let item of items; let i=index" >
-    <input type="checkbox" class="checkbox" [(ngModel)]="item.completed" />
+  <li *ngFor="let item of items; let i=index">
+    <input type="checkbox" class="checkbox" [(ngModel)]="item.completed" [(ngModel)]="item.status">
     <span [ngClass]="{'checked': item.completed}" (click)="onSelect(item)">{{ item.name }}</span>
-      <span (click)="deleteTodo(i)" class="delete-icon">[X]</span>
+    <span (click)="deleteTodo(i)" class="delete-icon">[X]</span>
   </li>
 </ul>
 
